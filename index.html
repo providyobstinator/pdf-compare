@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ultimate PDF Compare</title>
+  <meta charset="UTF-8" />
+  <title>PDF Compare Tool</title>
+
+  <!-- ✅ PWA + ICON CONFIG -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#38bdf8">
+
+  <!-- Android fallback icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+
+  <!-- iOS support (optional but good) -->
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <h1>PDF Difference Analyzer</h1>
+  <p>Compare two PDFs directly in your browser. No upload. No backend.</p>
 
-<h1>Ultimate PDF Comparison Tool</h1>
-<p>All processing happens in your browser. No uploads.</p>
-
-<div class="inputs">
   <input type="file" id="pdf1" accept="application/pdf">
   <input type="file" id="pdf2" accept="application/pdf">
-  <button onclick="compare()">Compare</button>
-  <label><input type="checkbox" id="onlyChanges"> Show only changes</label>
-</div>
+  <br><br>
+  <button onclick="compare()">Compare PDFs</button>
 
-<div id="summary"></div>
+  <div id="stats"></div>
+  <pre id="output"></pre>
 
-<div class="container">
-  <div>
-    <h3>PDF A</h3>
-    <div id="left" class="box"></div>
-  </div>
-  <div>
-    <h3>PDF B</h3>
-    <div id="right" class="box"></div>
-  </div>
-</div>
-
-<script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
-<script src="script.js"></script>
+  <!-- PDF.js -->
+  <script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
