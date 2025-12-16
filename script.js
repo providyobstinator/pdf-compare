@@ -1,47 +1,44 @@
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-  "https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
 
-async function extractText(file) {
-  const buffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: buffer }).promise;
-
-  let text = "";
-  for (let i = 1; i <= pdf.numPages; i++) {
-    const page = await pdf.getPage(i);
-    const content = await page.getTextContent();
-    content.items.forEach(item => {
-      text += item.str + " ";
-    });
-  }
-  return text;
+body {
+  font-family: system-ui, Arial;
+  background: #020617;
+  color: #e5e7eb;
+  padding: 20px;
 }
 
-function diffText(a, b) {
-  const aWords = a.split(" ");
-  const bWords = b.split(" ");
+h1 { color: #38bdf8; }
 
-  let result = "";
-  bWords.forEach(word => {
-    if (!aWords.includes(word)) {
-      result += "+ " + word + "\n";
-    }
-  });
+.inputs { margin-bottom: 15px; }
 
-  return result || "No differences found";
+button {
+  background: #38bdf8;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-async function compare() {
-  const f1 = document.getElementById("pdf1").files[0];
-  const f2 = document.getElementById("pdf2").files[0];
+.container {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
 
-  if (!f1 || !f2) {
-    alert("Select both PDFs");
-    return;
-  }
+.box {
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 10px;
+  height: 60vh;
+  overflow: auto;
+  font-size: 14px;
+}
 
-  const t1 = await extractText(f1);
-  const t2 = await extractText(f2);
+.added { background: #064e3b; }
+.removed { background: #7f1d1d; }
+.modified { background: #78350f; }
 
-  document.getElementById("output").innerText =
-    diffText(t1, t2);
+#summary {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #facc15;
 }
