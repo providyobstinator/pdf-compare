@@ -1,19 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Compare PDFs</title>
+  <meta charset="UTF-8">
+  <title>Ultimate PDF Compare</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Compare Any Two PDFs</h2>
+<h1>Ultimate PDF Comparison Tool</h1>
+<p>All processing happens in your browser. No uploads.</p>
 
-<input type="file" id="pdf1" accept="application/pdf">
-<input type="file" id="pdf2" accept="application/pdf">
-<br><br>
-<button onclick="compare()">Compare</button>
+<div class="inputs">
+  <input type="file" id="pdf1" accept="application/pdf">
+  <input type="file" id="pdf2" accept="application/pdf">
+  <button onclick="compare()">Compare</button>
+  <label><input type="checkbox" id="onlyChanges"> Show only changes</label>
+</div>
 
-<pre id="output"></pre>
+<div id="summary"></div>
+
+<div class="container">
+  <div>
+    <h3>PDF A</h3>
+    <div id="left" class="box"></div>
+  </div>
+  <div>
+    <h3>PDF B</h3>
+    <div id="right" class="box"></div>
+  </div>
+</div>
 
 <script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
 <script src="script.js"></script>
