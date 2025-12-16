@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Compare PDFs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Compare Any Two PDFs</h2>
+
+<input type="file" id="pdf1" accept="application/pdf">
+<input type="file" id="pdf2" accept="application/pdf">
+<br><br>
+<button onclick="compare()">Compare</button>
+
+<pre id="output"></pre>
+
+<script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
