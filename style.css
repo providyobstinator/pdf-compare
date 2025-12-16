@@ -1,0 +1,16 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+button {
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+pre {
+  margin-top: 20px;
+  background: #f4f4f4;
+  padding: 10px;
+  white-space: pre-wrap;
+}
